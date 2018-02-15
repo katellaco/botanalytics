@@ -75,6 +75,11 @@ module.exports = function(token, userConfig) {
 		// Add timestamp to the data object
 		objectPath.set(data, 'timestamp', new Date().getTime());
 
+		// test console doesn't send device
+		if (!data.device) {
+			data.device = "google-unknown";
+		}
+
 		request({
 
 			url: '/messages/user/google-assistant/',
